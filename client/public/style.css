@@ -1,0 +1,33 @@
+body {
+         
+background: url('images/Pic.jpeg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+      }
+      
+   h1{
+     color:rgb(240, 249, 255);
+     text-shadow:2px 2px 1px rgb(197, 183, 183)
+   }
+   nav{
+    
+     background-color: darkgrey;
+   
+   }
+  nav ul li{
+    display:inline-block;
+    
+    line-height: 100px;
+  }
+  nav ul li a{
+    color:black;
+    font-family: fantasy;
+    text-decoration: none;
+    padding: 0px 100px 10px 10px;
+    display:block;
+  }
+  nav ul li a:hover{
+    color:darkred;
+  }
