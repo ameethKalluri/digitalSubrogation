@@ -36,71 +36,9 @@ class Siu extends Component{
       return <div>Loading Web3, accounts, and contract...</div>;
     }
       return (
-          <div>
-              <div style={{backgroundColor:'darkgrey'}}>
-    <table  style={{color:'black'}}><tr><td><div class="img">
-    <img src="images/Pic2.png" alt="IITP" width='100px' padding=' 0 100px 20px 10px'/>
-     </div></td>
-     <td> <nav>
-       <ul>
-         <li><a href="#about">About</a></li>
-         <li><a href="#Pinit">Claim_Creation</a></li>
-        
-       <li><a href='#con'>Contact</a></li>
-       </ul>
-     </nav></td>
-     </tr>
-     </table>
-  </div>
+  <div>
   <p id='about' style={{fontFamily:'Cursive'}}>
     This website allows the claim adjuster to create new subrogation claims and also to accept subrogation claims from other insurance companies </p>
-    
-    <form onSubmit={this.fun1}>
-   <h1 align='center'  id='Pinit'>Policy Initialization</h1>
-   <div className="form-group">
-   <label><b>Address&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-   <input type="address" className="form-control" name="ad" required="required"/>
-   <button
-                    type="submit"
-                    className="btn btn-primary btn-block btn-lg"
-                    style={{backgroundColor:"lightgray",color:'black'}}
-                  >
-                    
-                    <b>Register</b>
-                  </button>
-                  
-          </div>
-   </form>
-
-    <form onSubmit = {this.fun2}>
-      <h1 align='center'id='GPD'>Claim Creation</h1>
-      <div className="form-group">
-      <label><b>Insured ID&nbsp;</b></label>
-          <input type="text" className="form-control" name="insuredId" required="required"/>
-          </div>
-          <br></br>
-          <div className="form-group">
-      <label><b>Policy ID&nbsp;</b></label>
-          <input type="text" className="form-control" name="policyId" required="required"/>
-          </div>
-          <br></br>
-          <div className="form-group">
-      <label><b>Date&nbsp;</b></label>
-          <input type="text" className="form-control" name="Date" required="required"/>
-          </div>
-          <div className="form-group">
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-block btn-lg"
-                    style={{backgroundColor:"lightgray",color:'black'}}
-                  ><b>
-                    submit</b>
-                  </button>
-                </div>  
-      </form>
-<div>
-The claim is {this.state.claim_ad}
-</div>
 <section id="con">
 <address>Developed by<a href="mailto:harsha.jellabannu@gmail.com">&nbsp;Harsha</a> and <a href="mailto:ameethkalluri369@gmail.com">Ameeth Kalluri</a></address>
 </section>
