@@ -1,8 +1,6 @@
 # digitalSubrogation
 Inorder to run the application go to clients folder and use the command npm start 
 
-Github link for all the codes:https://github.com/ameethKalluri/digitalSubrogation/tree/master
-
 We used 6 smart Contracts in total.They are SIU.sol,Adjuster.sol,Agency.sol,Claim.sol,Policy.sol,user.sol.
 
 Detailed description of code and its functions:
