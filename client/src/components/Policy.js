@@ -103,7 +103,6 @@ fun3 = async (event) => {
          <ul>
            <li><a href="#about">About</a></li>
            <li><a href="#PC">Policy-Creation</a></li>
-           <li><a href="#CPC">Intialization</a></li>
            <li><a href="#GPD">Policy-Details</a></li>
          <li><a href='#con'>Contact</a></li>
          </ul>
@@ -139,30 +138,6 @@ fun3 = async (event) => {
                   </button>
                 </div>
                 <div>The ID is {this.state.PID}</div>
-      </form>
-
-      <form onSubmit = {this.fun2}>
-      <h1 align='center'id='CPC'>Create Policy Client</h1>
-          <div className="form-group">
-      <label><b>Client ID&nbsp;</b></label>
-          <input type="text" className="form-control" name="clientId" required="required"/>
-          </div>
-          <div className="form-group">
-      <label><b>Policy ID&nbsp;</b></label>
-          <input type="text" className="form-control" name="policyId" required="required"/>
-          </div>
-          <br></br>
-          <div className="form-group">
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-block btn-lg"
-                    style={{backgroundColor:"lightgray",color:'black'}}
-                  >
-                    
-                    <b>Register</b>
-                  </button>
-                </div>
-                <div>The ID is {this.state.PCID}</div>
       </form>
 
       <form onSubmit = {this.fun3}>

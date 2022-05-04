@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
-class Siu extends Component{
+class Tagency extends Component{
     state = { accounts2: null, contract2: null, claim_ad:null };
     componentDidMount = async () => {
-     
          const accounts2 =this.props.accounts;
          console.log(accounts2);
          const contract2 = this.props.contract;
@@ -12,13 +10,13 @@ class Siu extends Component{
          this.setState({ accounts2,contract2 });
          console.log(this.state);
    };
- 
+
    fun1 = async(event)=>{
     event.preventDefault();
     const { accounts2, contract2 } = this.state;
     console.log(contract2);
     if( window.confirm("Initiliaze Claim?")){
-      await contract2.methods.set_claim(event.target.address.value).send({ from: accounts2[0] }); 
+      await contract2.methods.set_claim_add(event.target.address.value).send({ from: accounts2[0] }); 
     }  
   };
   
@@ -27,18 +25,22 @@ class Siu extends Component{
     const { accounts2, contract2 } = this.state;
     console.log(contract2);
     if( window.confirm("Initiliaze Adjuster?")){
-      await contract2.methods.set_adjuster(event.target.address1.value).send({ from: accounts2[0] }); 
+      await contract2.methods.set_adjuster_add(event.target.address1.value).send({ from: accounts2[0] }); 
     }  
   };
 
-   fun3 = async (event) => {
+  fun3 = async(event)=>{
     event.preventDefault();
-    //console.log(this.state.contract)
     const { accounts2, contract2 } = this.state;
-    if( window.confirm("Set Subrogation?")){
-      await contract2.methods.set_sub(event.target.IID.value, event.target.date.value,event.target.name.value,event.target.cfad.value,event.target.ipfs.value).send({ from: accounts2[0] }); 
+    console.log(contract2);
+    if( window.confirm("Transfer Claim?")){
+      await contract2.methods.transfer(event.target.ID.value).send({ from: accounts2[0] }); 
     }
+    const response =await contract2.methods.SubClaims_Out().call();
+    console.log(response);
+    this.setState({ sub_out: response });
   };
+
   
    render(){
     if (!this.state.accounts2) {
@@ -46,7 +48,6 @@ class Siu extends Component{
     }
       return (
   <div>
-   
 
 <div style={{backgroundColor:'darkgrey'}}>
     <table  style={{color:'black'}}><tr><td><div class="img">
@@ -55,9 +56,9 @@ class Siu extends Component{
      <td> <nav>
        <ul>
          <li><a href="#about">About</a></li>
-         <li><a href="#ClaimInit">Claim Init</a></li>
-         <li><a href="#AdjInit">Adjuster Init</a></li>
-         <li><a href="#SubInit">Subrogation Init</a></li>
+         <li><a href="#clmit">Claim Init</a></li>
+         <li><a href="#Adjit">Adjuster Init</a></li>
+         <li><a href="#CT">Claim Transfer</a></li>
        <li><a href='#con'>Contact</a></li>
        </ul>
      </nav></td>
@@ -66,9 +67,9 @@ class Siu extends Component{
 
   </div>
   <p id='about' style={{fontFamily:'Cursive'}}>
-    This webpage allows the SIU to check and set the claims as subrogation which are sent by other insurance companies. </p>
+    This webpage allows the agency of one insurance company to transfer subrogation claims to adjuster of other insurance companies. </p>
     <form onSubmit = {this.fun1}>
-      <h1 align='center'id='ClaimInit'>Claim Init</h1>
+      <h1 align='center'id='clmit'>Claim Init</h1>
       <div className="form-group">
       <label><b>Address&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
           <input type="Address" className="form-control" name="address" required="required"/>
@@ -86,7 +87,7 @@ class Siu extends Component{
       </form>
 
  <form onSubmit = {this.fun2}>
-      <h1 align='center'id='AdjInit'>Adjuster Init</h1>
+      <h1 align='center'id='Adjit'>Adjuster Init</h1>
       <div className="form-group">
       <label><b>Address&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
           <input type="Address" className="form-control" name="address1" required="required"/>
@@ -103,38 +104,26 @@ class Siu extends Component{
           </div>
       </form>
 
- <form onSubmit = {this.fun3}>
-      <h1 align='center'id='SubInit'>Subrogation Init</h1>
-      <div className="form-group">
-      <label><b>Insurance ID&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-          <input type="text" className="form-control" name="IID" required="required"/>
-          </div>
-          <div className="form-group">
-      <label><b>Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-          <input type="text" className="form-control" name="date" required="required"/>
-          </div>
-          <div className="form-group">
-      <label><b>Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-          <input type="text" className="form-control" name="name" required="required"/>
-          </div>
-          <div className="form-group">
-      <label><b>CompanyFault&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-          <input type="address" className="form-control" name="cfad" required="required"/>
-          </div>
-          <div className="form-group">
-      <label><b>report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-          <input type="address" className="form-control" name="ipfs" required="required"/>
-          </div>
-          <div className="form-group">
-          <button
-                    type="submit"
-                    className="btn btn-primary btn-block btn-lg"
-                    style={{backgroundColor:"lightgray",color:'black'}}
-          >      
-          <b>submit</b>
-          </button>
-          </div>
-      </form>
+<form onSubmit = {this.fun3}>
+<h1 align='center'id='CT'>Transfer Claim</h1>
+<div className="form-group">
+<label><b>Subrogation ID&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+    <input type="text" className="form-control" name="ID" required="required"/>
+    </div>
+    <br></br>
+    <div className="form-group">
+    <button
+              type="submit"
+              className="btn btn-primary btn-block btn-lg"
+              style={{backgroundColor:"lightgray",color:'black'}}
+    >      
+    <b>submit</b>
+    </button>
+    </div>
+    <div>The number of subrogation out claims is {this.state.sub_out}</div>
+</form>
+
+ 
 
 <section id="con">
 <address>Developed by<a href="mailto:harsha.jellabannu@gmail.com">&nbsp;Harsha</a> and <a href="mailto:ameethkalluri369@gmail.com">Ameeth Kalluri</a></address>
@@ -143,4 +132,4 @@ class Siu extends Component{
       );
   } 
 }
-export default Siu;
+export default Tagency;

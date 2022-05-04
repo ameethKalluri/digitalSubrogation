@@ -66,7 +66,6 @@ class User extends Component{
            <li><a href="#Pinit">Policy_Initialization</a></li>
            <li><a href="#UI">User-Initialization</a></li>
            <li><a href="#Apply">Apply Policy</a></li>
-           <li><a href="#check">Verify</a></li>
          <li><a href='#con'>Contact</a></li>
          </ul>
        </nav></td>
@@ -140,23 +139,6 @@ company </p>
                   </button>
           </div>
   </form>
-
-  <form onSubmit={this.fun3}>
-   <h1 align='center' id="check">Policy Check</h1>
-   <div className="form-group">
-   <label><b>ID&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-   <input type="text" className="form-control" name="idx" required="required"/>
-   <button
-                    type="submit"
-                    className="btn btn-primary btn-block btn-lg"
-                    style={{backgroundColor:"lightgray",color:'black'}}
-                  >
-                    <b>Check</b>
-                  </button>
-                  <div>The result is {this.state.user_c}</div>
-          </div>
-     </form>
-
 <section id="con">
 <address>Developed by<a href="mailto:harsha.jellabannu@gmail.com">&nbsp;Harsha</a> and <a href="mailto:ameethkalluri369@gmail.com">Ameeth Kalluri</a></address>
 </section>

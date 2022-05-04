@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 class Adjuster extends Component{
     state = { accounts2: null, contract2: null, claim_ad:null };
     componentDidMount = async () => {
@@ -37,6 +38,7 @@ class Adjuster extends Component{
     }
       return (
           <div>
+            
               <div style={{backgroundColor:'darkgrey'}}>
     <table  style={{color:'black'}}><tr><td><div class="img">
     <img src="images/Pic2.png" alt="IITP" width='100px' padding=' 0 100px 20px 10px'/>
@@ -44,8 +46,8 @@ class Adjuster extends Component{
      <td> <nav>
        <ul>
          <li><a href="#about">About</a></li>
+         <li><a href='#GPD'>Policy_Initialization</a></li>
          <li><a href="#Pinit">Claim_Creation</a></li>
-        
        <li><a href='#con'>Contact</a></li>
        </ul>
      </nav></td>
@@ -78,14 +80,12 @@ class Adjuster extends Component{
       <label><b>Insured ID&nbsp;</b></label>
           <input type="text" className="form-control" name="insuredId" required="required"/>
           </div>
-          <br></br>
           <div className="form-group">
-      <label><b>Policy ID&nbsp;</b></label>
+      <label><b>Policy ID&nbsp;&nbsp;&nbsp;</b></label>
           <input type="text" className="form-control" name="policyId" required="required"/>
           </div>
-          <br></br>
           <div className="form-group">
-      <label><b>Date&nbsp;</b></label>
+      <label><b>Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
           <input type="text" className="form-control" name="Date" required="required"/>
           </div>
           <div className="form-group">
